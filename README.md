@@ -1,92 +1,104 @@
-# langchain-fork-finlab
+# 🦜️🔗 LangChain
+
+⚡ Building applications with LLMs through composability ⚡
+
+[![Release Notes](https://img.shields.io/github/release/langchain-ai/langchain)](https://github.com/langchain-ai/langchain/releases)
+[![CI](https://github.com/langchain-ai/langchain/actions/workflows/langchain_ci.yml/badge.svg)](https://github.com/langchain-ai/langchain/actions/workflows/langchain_ci.yml)
+[![Experimental CI](https://github.com/langchain-ai/langchain/actions/workflows/langchain_experimental_ci.yml/badge.svg)](https://github.com/langchain-ai/langchain/actions/workflows/langchain_experimental_ci.yml)
+[![Downloads](https://static.pepy.tech/badge/langchain/month)](https://pepy.tech/project/langchain)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Twitter](https://img.shields.io/twitter/url/https/twitter.com/langchainai.svg?style=social&label=Follow%20%40LangChainAI)](https://twitter.com/langchainai)
+[![](https://dcbadge.vercel.app/api/server/6adMQxSpJS?compact=true&style=flat)](https://discord.gg/6adMQxSpJS)
+[![Open in Dev Containers](https://img.shields.io/static/v1?label=Dev%20Containers&message=Open&color=blue&logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/langchain-ai/langchain)
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/langchain-ai/langchain)
+[![GitHub star chart](https://img.shields.io/github/stars/langchain-ai/langchain?style=social)](https://star-history.com/#langchain-ai/langchain)
+[![Dependency Status](https://img.shields.io/librariesio/github/langchain-ai/langchain)](https://libraries.io/github/langchain-ai/langchain)
+[![Open Issues](https://img.shields.io/github/issues-raw/langchain-ai/langchain)](https://github.com/langchain-ai/langchain/issues)
 
 
+Looking for the JS/TS version? Check out [LangChain.js](https://github.com/langchain-ai/langchainjs).
 
-## Getting started
+To help you ship LangChain apps to production faster, check out [LangSmith](https://smith.langchain.com). 
+[LangSmith](https://smith.langchain.com) is a unified developer platform for building, testing, and monitoring LLM applications. 
+Fill out [this form](https://airtable.com/appwQzlErAS2qiP0L/shrGtGaVBVAz7NcV2) to get off the waitlist or speak with our sales team
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+## 🚨Breaking Changes for select chains (SQLDatabase) on 7/28/23
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+In an effort to make `langchain` leaner and safer, we are moving select chains to `langchain_experimental`.
+This migration has already started, but we are remaining backwards compatible until 7/28.
+On that date, we will remove functionality from `langchain`.
+Read more about the motivation and the progress [here](https://github.com/langchain-ai/langchain/discussions/8043).
+Read how to migrate your code [here](MIGRATE.md).
 
-## Add your files
+## Quick Install
 
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
+`pip install langchain`
+or
+`pip install langsmith && conda install langchain -c conda-forge`
 
-```
-cd existing_repo
-git remote add origin https://code.siemens.com/cfr51/finlab/langchain-fork-finlab.git
-git branch -M main
-git push -uf origin main
-```
+## 🤔 What is this?
 
-## Integrate with your tools
+Large language models (LLMs) are emerging as a transformative technology, enabling developers to build applications that they previously could not. However, using these LLMs in isolation is often insufficient for creating a truly powerful app - the real power comes when you can combine them with other sources of computation or knowledge.
 
-- [ ] [Set up project integrations](https://code.siemens.com/cfr51/finlab/langchain-fork-finlab/-/settings/integrations)
+This library aims to assist in the development of those types of applications. Common examples of these applications include:
 
-## Collaborate with your team
+**❓ Question Answering over specific documents**
 
-- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Set auto-merge](https://docs.gitlab.com/ee/user/project/merge_requests/merge_when_pipeline_succeeds.html)
+- [Documentation](https://python.langchain.com/docs/use_cases/question_answering/)
+- End-to-end Example: [Question Answering over Notion Database](https://github.com/hwchase17/notion-qa)
 
-## Test and Deploy
+**💬 Chatbots**
 
-Use the built-in continuous integration in GitLab.
+- [Documentation](https://python.langchain.com/docs/use_cases/chatbots/)
+- End-to-end Example: [Chat-LangChain](https://github.com/langchain-ai/chat-langchain)
 
-- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/index.html)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing(SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
+**🤖 Agents**
 
-***
+- [Documentation](https://python.langchain.com/docs/modules/agents/)
+- End-to-end Example: [GPT+WolframAlpha](https://huggingface.co/spaces/JavaFXpert/Chat-GPT-LangChain)
 
-# Editing this README
+## 📖 Documentation
 
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thank you to [makeareadme.com](https://www.makeareadme.com/) for this template.
+Please see [here](https://python.langchain.com) for full documentation on:
 
-## Suggestions for a good README
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
+- Getting started (installation, setting up the environment, simple examples)
+- How-To examples (demos, integrations, helper functions)
+- Reference (full API docs)
+- Resources (high-level explanation of core concepts)
 
-## Name
-Choose a self-explaining name for your project.
+## 🚀 What can this help with?
 
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
+There are six main areas that LangChain is designed to help with.
+These are, in increasing order of complexity:
 
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
+**📃 LLMs and Prompts:**
 
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
+This includes prompt management, prompt optimization, a generic interface for all LLMs, and common utilities for working with LLMs.
 
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
+**🔗 Chains:**
 
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
+Chains go beyond a single LLM call and involve sequences of calls (whether to an LLM or a different utility). LangChain provides a standard interface for chains, lots of integrations with other tools, and end-to-end chains for common applications.
 
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
+**📚 Data Augmented Generation:**
 
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
+Data Augmented Generation involves specific types of chains that first interact with an external data source to fetch data for use in the generation step. Examples include summarization of long pieces of text and question/answering over specific data sources.
 
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
+**🤖 Agents:**
 
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
+Agents involve an LLM making decisions about which Actions to take, taking that Action, seeing an Observation, and repeating that until done. LangChain provides a standard interface for agents, a selection of agents to choose from, and examples of end-to-end agents.
 
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
+**🧠 Memory:**
 
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
+Memory refers to persisting state between calls of a chain/agent. LangChain provides a standard interface for memory, a collection of memory implementations, and examples of chains/agents that use memory.
 
-## License
-For open source projects, say how it is licensed.
+**🧐 Evaluation:**
 
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+[BETA] Generative models are notoriously hard to evaluate with traditional metrics. One new way of evaluating them is by using language models themselves to do the evaluation. LangChain provides some prompts/chains for assisting in this.
+
+For more information on these concepts, please see our [full documentation](https://python.langchain.com).
+
+## 💁 Contributing
+
+As an open-source project in a rapidly developing field, we are extremely open to contributions, whether it be in the form of a new feature, improved infrastructure, or better documentation.
+
+For detailed information on how to contribute, see [here](.github/CONTRIBUTING.md).

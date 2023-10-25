@@ -35,6 +35,6 @@ class RegexParser(BaseOutputParser):
                 raise ValueError(f"Could not parse output: {text}")
             else:
                 return {
-                    key: text if key == self.default_output_key else ""
+                    key: text if key == self.default_output_key else "0"
                     for key in self.output_keys
                 }

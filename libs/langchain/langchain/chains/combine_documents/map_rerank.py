@@ -211,6 +211,7 @@ class MapRerankDocumentsChain(BaseCombineDocumentsChain):
                 extra_info[key] = document.metadata[key]
         if self.return_intermediate_steps:
             extra_info["intermediate_steps"] = results
+        output["answer"] = output["answer"] + f"page:{document.metadata['page']}"
         return output[self.answer_key], extra_info
 
     @property
